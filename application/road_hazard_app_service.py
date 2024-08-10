@@ -12,7 +12,8 @@ from utils.mathematics import Coordinate, MathematicsUtil
 
 class RoadHazardAppService:
     @classmethod
-    def get_road_hazards(cls, request: GetRoadHazardRequestBody): hazards = RoadHazardService.get_road_hazards(request.routes)
+    def get_road_hazards(cls, request: GetRoadHazardRequestBody):
+        hazards = RoadHazardService.get_road_hazards(request.routes)
 
         route_items: list[RoadHazardRouteItem] = []
         for route in request.routes:
