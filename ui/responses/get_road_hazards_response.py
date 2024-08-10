@@ -5,7 +5,7 @@ from domain.const.road_hazard_type import RoadHazardType
 
 class RoadHazardResponseItem(pydantic.BaseModel):
     type: RoadHazardType
-    coordinate: list[float]
+    coordinate: list[list[float]]
 
 
 class GetRoadHazardResponse(pydantic.BaseModel):

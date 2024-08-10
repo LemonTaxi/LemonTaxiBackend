@@ -11,6 +11,8 @@ class RoadHazardAppService:
     def get_road_hazards(cls, request: GetRoadHazardRequestBody):
         hazards: list[RoadHazardResponseItem] = []
         for hazard_type in list(RoadHazardType):
-            hazards.append(RoadHazardResponseItem(type=hazard_type, coordinate=[1, 1]))
+            hazards.append(
+                RoadHazardResponseItem(type=hazard_type, coordinate=[[1, 1]])
+            )
 
         return GetRoadHazardResponse(index=1, hazards=hazards)

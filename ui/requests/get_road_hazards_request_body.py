@@ -2,7 +2,7 @@ import pydantic
 
 
 class RouteGeometry(pydantic.BaseModel):
-    coordinates: list[float]
+    coordinates: list[list[float]]
 
 
 class RouteRequest(pydantic.BaseModel):
