@@ -12,7 +12,7 @@ class RoadHazardAppService:
         hazards = RoadHazardService.get_road_hazards()
 
         hazard_items: list[RoadHazardResponseItem] = []
-        for hazard in hazard_items:
+        for hazard in hazards:
             hazard_items.append(
                 RoadHazardResponseItem(type=hazard.type, coordinate=hazard.coordinate)
             )
