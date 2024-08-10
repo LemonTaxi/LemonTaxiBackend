@@ -8,4 +8,4 @@ router = APIRouter()
 
 @router.post("/road-hazards")
 def get_road_hazards(request: GetRoadHazardRequestBody):
-    return RoadHazardAppService.get_road_hazards(request)
+    return RoadHazardAppService.get_road_hazards(request).dict()
