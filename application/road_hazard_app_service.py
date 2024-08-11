@@ -53,6 +53,7 @@ class RoadHazardAppService:
                 if MathematicsUtil.is_point_near_great_circle(
                     first_point, second_point, hazard_point
                 ):
+                    hazard_coordinates = cls.__get_coordinates(index, coordinates)
                     hazard_items.append(
                         RoadHazardResponseItem(
                             type=hazard.type,
@@ -60,11 +61,24 @@ class RoadHazardAppService:
                                 hazard_point.longitude,
                                 hazard_point.latitude,
                             ],
-                            coordinates=[
-                                [first_point.longitude, first_point.latitude],
-                                [second_point.longitude, second_point.latitude],
-                            ],
+                            coordinates=hazard_coordinates,
                         )
                     )
 
         return hazard_items
+
+    @classmethod
+    def __get_coordinates(
+        cls, index: int, coordinates: list[list[float]]
+    ) -> list[list[float]]:
+        if index < 2 or index > len(coordinates) - 2:
+            return [coordinates[index], coordinates[index + 1]]
+
+        # NOTE: 화면에서 시각적으로 표현해주기 위해 주변 coordinate를 포함
+        return [
+            coordinates[index - 2],
+            coordinates[index - 1],
+            coordinates[index],
+            coordinates[index + 1],
+            coordinates[index + 2],
+        ]

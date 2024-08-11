@@ -34,9 +34,8 @@ class RoadHazardService:
 
         path_having_hazard_indexes = random.sample(
             range(len(not_duplicated_unsafe_path) - 1),
-            len(not_duplicated_unsafe_path) // 40,
+            len(not_duplicated_unsafe_path) // 60,
         )
-        print(path_having_hazard_indexes)
 
         road_hazard: list[RoadHazardDTO] = []
         for index in path_having_hazard_indexes:
